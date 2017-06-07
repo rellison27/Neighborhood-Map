@@ -1,4 +1,10 @@
 /* this is css for the Map */
+html, body {
+  height: 100%;
+}
+html {
+  display: block;
+}
 #map {
-  height: 50%;
+  height: 75%;
 }
