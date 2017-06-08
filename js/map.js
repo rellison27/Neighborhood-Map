@@ -6,6 +6,19 @@ function initMap() {
     center: {lat: 33.771455, lng: -84.297857},
     zoom: 13
   });
+  //loop  through model
+    for(var i = 0; i < locations.length; i++) {
+      var position = locations[i].location;
+      var content = locations[i].content;
+      var name = locations[i].place;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: position,
+        title: name,
+      });
+    }
+
+
   /*
   var tribeca = {lat: 40.719526, lng: -74.0089934};
   var marker = new google.maps.Marker({
@@ -14,4 +27,4 @@ function initMap() {
     title: 'First Marker!'
   });
   */
-}
+};
