@@ -5,7 +5,9 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 33.771455, lng: -84.297857},
     zoom: 13
-  });
+    });
+  };
+  
   //loop  through model
     for(var i = 0; i < locations.length; i++) {
       var position = locations[i].location;
@@ -27,4 +29,3 @@ function initMap() {
     title: 'First Marker!'
   });
   */
-};
