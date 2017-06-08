@@ -7,7 +7,7 @@ function initMap() {
     zoom: 13
     });
   };
-  
+
   //loop  through model
     for(var i = 0; i < locations.length; i++) {
       var position = locations[i].location;
