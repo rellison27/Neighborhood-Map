@@ -4,7 +4,8 @@ function initMap() {
   // Constructor creates a new map - only center and zoom are required.
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 33.771455, lng: -84.297857},
-    zoom: 12
+    zoom: 12,
+    styles: style
     });
   //loop  through model
     for(var i = 0; i < locations.length; i++) {
@@ -22,6 +23,7 @@ function initMap() {
         populateInfoWindow(this, infowindow);
       });
     }
+
   };
   // populateInfoWindow
   function populateInfoWindow(marker, infowindow) {
@@ -32,7 +34,7 @@ function initMap() {
       infowindow.open(map, marker);
       //clear the window when closed
       infowindow.addListener('closeclick', function(){
-        infowindow.setMarker(null);
+        infowindow.marker = null;
       });
     }
   }
