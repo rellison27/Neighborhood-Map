@@ -36,7 +36,6 @@ var locations = [
       },
     },
   ];
-  // styles array to make it look to my liking
   var style = [
     {
         "featureType": "administrative",
