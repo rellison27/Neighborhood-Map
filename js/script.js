@@ -1,1 +1,1 @@
-//this will be the Javascript for the neighborhood map
+//create location Constructor and filter option
