@@ -23,11 +23,13 @@ function initMap() {
       marker.addListener('click', function (){
         populateInfoWindow(this, infowindow);
       });
+      //add listener to make markers bounce when clicked
+      marker.addListener('click', function(){
+        mouseBounce(this);
+      });
     }
-    //add listener to make markers bounce when
-    marker.addListener('click', mouseBounce);
-    // function called in addListener to make marker bounce when clicked
-    function mouseBounce() {
+    // function called in addListener to make markers bounce when clicked
+    function mouseBounce(marker) {
       if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
       } else {
@@ -48,12 +50,3 @@ function initMap() {
       });
     }
   }
-
-  /*
-  var tribeca = {lat: 40.719526, lng: -74.0089934};
-  var marker = new google.maps.Marker({
-    position: tribeca,
-    map: map,
-    title: 'First Marker!'
-  });
-  */
