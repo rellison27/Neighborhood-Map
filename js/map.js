@@ -9,16 +9,18 @@ function initMap() {
     styles: style,
     });
   //loop  through model
-    for(var i = 0; i < locations.length; i++) {
-      var position = locations[i].location;
-      var content = locations[i].content;
-      var name = locations[i].place;
+    for(var i = 0; i < locations().length; i++) {
+      var position = locations()[i].location;
+      var content = locations()[i].content;
+      var name = locations()[i].place;
       var marker = new google.maps.Marker({
         map: map,
         position: position,
         title: name,
         animation: google.maps.Animation.DROP,
       });
+      // both info window Constructor and event listener that uses anonymous
+      // function callback to use populateInfoWindow function for instruction
       var infowindow = new google.maps.InfoWindow();
       marker.addListener('click', function (){
         populateInfoWindow(this, infowindow);
