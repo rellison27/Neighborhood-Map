@@ -1,5 +1,5 @@
 // model.js
-var locations = [
+var locations = ko.observableArray([
     {
     place: 'Iberian Pig',
       location : {
@@ -35,7 +35,7 @@ var locations = [
         lng: -84.394902,
       },
     },
-  ];
+  ]);
   var style = [
     {
         "featureType": "administrative",
@@ -128,3 +128,5 @@ var locations = [
         ]
     }
 ]
+// Activiates knockout.js
+ko.applyBindings(new locations)
