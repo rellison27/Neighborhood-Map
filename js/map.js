@@ -29,6 +29,7 @@ function initMap() {
       marker.addListener('click', function(){
         mouseBounce(this);
       });
+       locations()[i].marker = marker;
     }
     // function called in addListener to make markers bounce when clicked
     function mouseBounce(marker) {
@@ -38,6 +39,7 @@ function initMap() {
         marker.setAnimation(google.maps.Animation.BOUNCE)
       }
     }
+    ko.applyBindings(new ViewModel());
   };
   // populateInfoWindow
   function populateInfoWindow(marker, infowindow) {
@@ -50,5 +52,7 @@ function initMap() {
       infowindow.addListener('closeclick', function(){
         infowindow.marker = null;
       });
+
     }
+
   }
