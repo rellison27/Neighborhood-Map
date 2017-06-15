@@ -1,5 +1,11 @@
 //Define a ViewModel Constructor
-
+var ViewModel = function () {
+  var self = this;
+  self.clickFunction = function (location){
+    google.maps.event.trigger(location.marker,'click');
+    console.log(location)
+  }
+}
 
 
 
@@ -23,4 +29,4 @@
 // over the observableArray. Note the binding context
 //(aka scope) will play an important role as well
 //Also, apply, for example, the ko text binding
-//to the <li> element 
+//to the <li> element

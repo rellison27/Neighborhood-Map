@@ -10,6 +10,10 @@
     <div class= "content">
       <div id="search-panel">
         <h1>Great Places To Visit In The A</h1>
+        <ul id='bindForEach' data-bind="foreach:locations">
+          <li id="bindText" data-bind = "text: place, click: $root.clickFunction">
+          </li>
+        </ul>
         <div>
           <input id="show-listings" type="button" value="Show Listings">
           <input id="hide-listings" type="button" value="Hide Listings">
