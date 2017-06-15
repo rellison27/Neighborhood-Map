@@ -129,4 +129,4 @@ var locations = ko.observableArray([
     }
 ]
 // Activiates knockout.js
-ko.applyBindings(new locations)
+//ko.applyBindings(new locations)
