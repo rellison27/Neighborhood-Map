@@ -1,8 +1,10 @@
 //Define a ViewModel Constructor
 var ViewModel = function () {
   var self = this;
+
   self.query = ko.observable('')
-  self.search = function (value) {
+
+  self.search = ko.computed(function (value) {
     locations.place.removeAll();
 
     for(var i in locations()) {
@@ -10,13 +12,16 @@ var ViewModel = function () {
         locations.location.push(location()[i]);
       }
     }
-  }
+  });
   self.clickFunction = function (location){
     google.maps.event.trigger(location.marker,'click');
   }
 };
+//Activate KO by applying the bindings
+ko.applyBindings(new ViewModel());
 
-ViewModel.query.subscribe(ViewModel.search);
+ViewModel.query(ViewModel.search);
+
 // instantiate the ViewModel and activate knockout
 // -(aka apply the bindings)
 
