@@ -1,5 +1,5 @@
-// model.js
-var locations = ko.observableArray([
+// Locations array with all the data for my markers
+var locations = [
     {
     place: 'Iberian Pig',
       location : {
@@ -35,7 +35,8 @@ var locations = ko.observableArray([
         lng: -84.394902,
       },
     },
-  ]);
+  ];
+  //this is borrowed code to style my map
   var style = [
     {
         "featureType": "administrative",
