@@ -17,7 +17,7 @@
           </form>
         </div>
         <section id="list">
-          <ul id='bindForEach' data-bind="foreach:locations">
+          <ul id='bindForEach' data-bind="foreach: locationItems">
             <li id="bindText" data-bind = "text: place, click: $root.clickFunction">
             </li>
           </ul>
@@ -30,8 +30,8 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF7qSyf0m0v5ZvmZX48GO9wfazrWnmsj0&v=3&callback=initMap">
         </script>
     <script type='text/javascript' src='knockout/knockout-3.4.2.js'> </script>
-    <script src="js/script.js"></script>
     <script src="js/model.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/map.js"></script>
   </body>
 </html>
