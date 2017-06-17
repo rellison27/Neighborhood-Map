@@ -31,14 +31,6 @@ function initMap() {
       });
        locations()[i].marker = marker;
     }
-    // function called in addListener to make markers bounce when clicked
-    function mouseBounce(marker) {
-      if (marker.getAnimation() !== null) {
-        marker.setAnimation(null);
-      } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE)
-      }
-    }
     ko.applyBindings(new ViewModel());
   };
   // populateInfoWindow
@@ -55,4 +47,12 @@ function initMap() {
 
     }
 
+  }
+  // function called in addListener to make markers bounce when clicked
+  function mouseBounce(marker) {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE)
+    }
   }
