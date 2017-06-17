@@ -12,7 +12,8 @@
         <h1>Great Places To Visit In The A</h1>
         <div id="wrap">
           <form action="">
-            <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit">
+              <input id="search" name="search" type="search" placeholder="What're we looking for?" autocomplete="off"
+              data-bind="value: query, valueUpdate: 'keyup'">
           </form>
         </div>
         <section id="list">
