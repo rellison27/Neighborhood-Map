@@ -1,8 +1,8 @@
 //Define a ViewModel Constructor
 var ViewModel = function () {
   var self = this;
-  query: ko.observable('')
-  search: function (value) {
+  self.query = ko.observable('')
+  self.search = function (value) {
     locations.place.removeAll();
 
     for(var i in locations()) {
@@ -16,8 +16,7 @@ var ViewModel = function () {
   }
 };
 
-ViewModel.query.sbscribe(viewModel.search);
-
+ViewModel.query.subscribe(ViewModel.search);
 // instantiate the ViewModel and activate knockout
 // -(aka apply the bindings)
 
