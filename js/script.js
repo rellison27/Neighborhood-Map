@@ -4,22 +4,24 @@ var myObservable = ko.observableArray(this.locations);
 //Define a ViewModel Constructor
 var ViewModel = function () {
   var self = this;
-  // Initialize observableArray in ViewModel
-  //this.myObservable = ko.observableArray(this.locations);
 
-  // Defining an observableArray for the ViewModel
+  // Defining an observableArray for the ViewModel from parent scope
   this.locationItems = ko.observableArray(locations);
 
-  self.query = ko.observable('');
-
-  this.search = ko.computed(function (value) {
-
-    for(var i in this.locationItems) {
-      if (self.locationItems[i].place.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
-        ViewModel.myObservable.push(self.locationItems[i]);
-      }
+  //initializing sifter with empty string to prevent errors
+  this.sifter = ko.observable('');
+  //  function
+  this.siftItems = ko.computed(function(){
+    var sifter = self.sifter().toLowerCase();
+    if(!sifter) {
+      return self.locationItems();
+    } else {
+      return ko.utils.arrayFilter(self.locationItems(), function(locationItems) {
+        return ko.utils.stringStartsWith(locationItems.place().toLowerCase(), sifter);
+      })
     }
-  });
+  }, self);
+  // Click function that allows me to click the list and get the bounce animation
   self.clickFunction = function (location){
     google.maps.event.trigger(location.marker,'click');
   };
