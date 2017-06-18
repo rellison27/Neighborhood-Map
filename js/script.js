@@ -17,7 +17,7 @@ var ViewModel = function () {
       return self.locationItems();
     } else {
       return ko.utils.arrayFilter(self.locationItems(), function(locationItems) {
-        return locationItems.place.toLowerCase().indexOf(sifter);
+        return locationItems.place.toLowerCase().indexOf(sifter) !== -1;
       })
     }
   }, self);
