@@ -8,7 +8,7 @@ var ViewModel = function () {
   // Defining an observableArray for the ViewModel from parent scope
   this.locationItems = ko.observableArray(locations);
 
-  //initializing sifter with empty string to prevent errors
+  //initializing sifter with empty string to prevent errors this is bound to the input
   this.sifter = ko.observable('');
   //  function
   this.siftItems = ko.computed(function(){
@@ -17,7 +17,7 @@ var ViewModel = function () {
       return self.locationItems();
     } else {
       return ko.utils.arrayFilter(self.locationItems(), function(locationItems) {
-        return ko.utils.stringStartsWith(locationItems.place().toLowerCase(), sifter);
+        return locationItems.place.toLowerCase().indexOf(sifter);
       })
     }
   }, self);
