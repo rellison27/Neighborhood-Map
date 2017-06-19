@@ -31,7 +31,6 @@ function initMap() {
       });
        locations[i].marker = marker;
     }
-    //ko.applyBindings(new ViewModel());
   };
   // populateInfoWindow
   function populateInfoWindow(marker, infowindow) {
