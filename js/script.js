@@ -13,11 +13,17 @@ var ViewModel = function () {
   //  function
   this.siftItems = ko.computed(function(){
     var sifter = self.sifter().toLowerCase();
+    //loop through markers
+    for (var i=0; i < self.locationItems.length; i++) {
+      self.locationItems()[i].marker.setVisible(true);
+    }
     if(!sifter) {
       return self.locationItems();
     } else {
       return ko.utils.arrayFilter(self.locationItems(), function(locationItems) {
-        return locationItems.place.toLowerCase().indexOf(sifter) !== -1;
+        var spot = locationItems.place.toLowerCase().indexOf(sifter) !== -1;
+          locationItems.marker.setVisible(spot);
+          return spot;
       })
     }
   }, self);
