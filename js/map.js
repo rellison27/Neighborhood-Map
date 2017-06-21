@@ -45,13 +45,34 @@ function initMap() {
       });
 
     }
+    /*
+    $.ajax ({
+      url: 'https://api.foursquare.com/v2/users/search',
+      dataType: 'json',
+      data: 'limit=1' +
+              '&ll='+ marker.position.lat() +','+ marker.position.lng() +
+              '&client_id='+ 'LOIFC5JMOR3YID5U2QOFRZBULTIUDAN2NXXXP3QLHC4UNNQY' +
+              '&client_secret='+ 'YLYALZZS1BWYZW0YHCIF4LMFQT2I531HAUBLH242IKWPKKRR' +
+              '&v=20140806' +
+              '&m=foursquare' +
+              '&query=' + marker.title,
+      async: true,
+    }).done(function(result) {
+      console.log(result);
 
+      // open and populate infowindow
+      infowindow.setContent ('<div>' + marker.title + '</div><p>' + result.response.venues[0].location.address + '</p><p>' + result.response.venues[0].location.postalCode + '</p>');
+        }).fail(function(error) {
+          console.log(error);
+        });
+        */
   }
   // function called in addListener to make markers bounce when clicked
   function mouseBounce(marker) {
-    if (marker.getAnimation() !== null) {
+    marker.setAnimation(google.maps.Animation.BOUNCE)
+    setTimeout(function() {
       marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE)
-    }
+
+    }, 2800);
+
   }
