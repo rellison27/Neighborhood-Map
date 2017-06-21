@@ -31,7 +31,7 @@ function initMap() {
       });
        locations[i].marker = marker;
     }
-  };
+  }
   // populateInfoWindow
   function populateInfoWindow(marker, infowindow) {
     //check for already opened windows
@@ -69,7 +69,7 @@ function initMap() {
   }
   // function called in addListener to make markers bounce when clicked
   function mouseBounce(marker) {
-    marker.setAnimation(google.maps.Animation.BOUNCE)
+    marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(function() {
       marker.setAnimation(null);
 
