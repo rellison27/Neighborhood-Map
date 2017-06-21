@@ -45,9 +45,9 @@ function initMap() {
       });
 
     }
-    /*
+
     $.ajax ({
-      url: 'https://api.foursquare.com/v2/users/search',
+      url: 'https://api.foursquare.com/v2/venues/search',
       dataType: 'json',
       data: 'limit=1' +
               '&ll='+ marker.position.lat() +','+ marker.position.lng() +
@@ -65,7 +65,7 @@ function initMap() {
         }).fail(function(error) {
           console.log(error);
         });
-        */
+
   }
   // function called in addListener to make markers bounce when clicked
   function mouseBounce(marker) {
