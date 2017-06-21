@@ -6,6 +6,10 @@ html, body {
     padding: 0;
 }
 
+.mapSection {
+  height: 100%;
+}
+
 .content {
     height: 100%;
     position: relative;
@@ -22,17 +26,13 @@ h1 {
     text-align: center;
 }
 
-#hide-listings,
-#show-listings {
-    width: 48%;
-}
-
 #map {
     bottom: 0px;
     height: 100%;
     left: 362px;
     position: absolute;
     right: 0px;
+    width: 100%;
 }
 
 #search-panel {
