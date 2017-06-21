@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content ="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content ="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title> Neightborhood Map </title>
     <link rel="stylesheet" href="css/style.css">
@@ -9,7 +9,7 @@
   <body>
     <div class= "content">
       <div id="search-panel">
-        <h1>Great Places To Visit In The A</h1>
+        <h1>Great Places To Visit In The ATL</h1>
         <div id="wrap">
           <form action="">
               <input id="search" name="search" type="search" placeholder="What're we looking for?" autocomplete="off"
@@ -23,17 +23,20 @@
           </ul>
         </section>
       </div>
+      <section class="mapSection">
       <div id="map"></div>
+      </section
     </div>
+
     <script>
-    function googleError() {
-      alert("Map failed to load");
-    }
+      function googleError() {
+        alert('Map failed to load');
+      }
     </script>
 
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF7qSyf0m0v5ZvmZX48GO9wfazrWnmsj0&v=3&callback=initMap" onerror="googleError()">
-        </script>
+      </script>
     <script type='text/javascript' src='knockout/knockout-3.4.2.js'> </script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
