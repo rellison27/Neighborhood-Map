@@ -129,5 +129,3 @@ var locations = [
         ]
     }
 ]
-// Activiates knockout.js
-//ko.applyBindings(new locations)
