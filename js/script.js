@@ -13,11 +13,14 @@ var ViewModel = function () {
   //  function
   this.siftItems = ko.computed(function(){
     var sifter = self.sifter().toLowerCase();
-    //loop through markers
-    for (var i=0; i < self.locationItems.length; i++) {
-      self.locationItems()[i].marker.setVisible(true);
-    }
+
     if(!sifter) {
+      //loop through markers
+      for (var i=0; i < self.locationItems().length; i++) {
+        if (self.locationItems()[i].marker) {
+            self.locationItems()[i].marker.setVisible(true);
+        }
+      }
       return self.locationItems();
     } else {
       return ko.utils.arrayFilter(self.locationItems(), function(locationItems) {
