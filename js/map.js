@@ -21,7 +21,16 @@ function initMap() {
         var marker = this;
         mouseBounce(this);
     }
-    //iterate  through model
+    //Attempt to make map responsive
+    google.maps.event.addDomListener(window, "size", function(){
+      var center = map.getCenter();
+      google.maps.event.trigger(map, "size");
+      map.setCenter(center);
+    })
+    //create boundaries for the map
+    var boundary = new google.maps.LatLngBounds();
+
+    //Iterate through model to create markers
     for (var i = 0; i < locations.length; i++) {
         var position = locations[i].location;
         var content = locations[i].content;
@@ -45,6 +54,7 @@ function initMap() {
 
         locations[i].marker = marker;
     }
+    boundary.extend(marker.position);
 }
 // populateInfoWindow
 function populateInfoWindow(marker, infowindow) {
