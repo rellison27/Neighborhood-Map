@@ -1,3 +1,4 @@
+/*jshint loopfunc: true */
 //place  all map functionality in this file
 var map;
 var marker;
