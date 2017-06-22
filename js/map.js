@@ -15,18 +15,18 @@ function initMap() {
     //function to handle the addListener
     var handleMarkerClick = function() {
         var marker = this;
-        populateInfoWindow(this, infowindow)
-    }
+        populateInfoWindow(this, infowindow);
+    };
     var handleMarkerAnimation = function() {
         var marker = this;
         mouseBounce(this);
-    }
+    };
     //Attempt to make map responsive
     google.maps.event.addDomListener(window, "size", function(){
       var center = map.getCenter();
       google.maps.event.trigger(map, "size");
       map.setCenter(center);
-    })
+    });
     //create boundaries for the map
     var boundary = new google.maps.LatLngBounds();
 
@@ -53,8 +53,8 @@ function initMap() {
         marker.addListener('click', handleMarkerAnimation);
 
         locations[i].marker = marker;
+        boundary.extend(marker.position);
     }
-    boundary.extend(marker.position);
 }
 // populateInfoWindow
 function populateInfoWindow(marker, infowindow) {
