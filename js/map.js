@@ -1,4 +1,3 @@
-/*jshint loopfunc: true */
 //place  all map functionality in this file
 var map;
 var marker;
@@ -13,7 +12,16 @@ function initMap() {
         zoom: 11,
         styles: style,
     });
-    //loop  through model
+    //function to handle the addListener
+    var handleMarkerClick = function() {
+        var marker = this;
+        populateInfoWindow(this, infowindow)
+    }
+    var handleMarkerAnimation = function() {
+        var marker = this;
+        mouseBounce(this);
+    }
+    //iterate  through model
     for (var i = 0; i < locations.length; i++) {
         var position = locations[i].location;
         var content = locations[i].content;
@@ -24,19 +32,17 @@ function initMap() {
             title: name,
             animation: google.maps.Animation.DROP,
         });
-        // both info window Constructor and event listener that uses anonymous
+        // both info window Constructor and event listener that uses a callback function
+        // instead of using an anonymous function inside of the loop
         // function callback to use populateInfoWindow function for instruction
         var infowindow = new google.maps.InfoWindow();
-        marker.addListener('click', function() {
-            populateInfoWindow(this, infowindow);
-        });
-        //marker.addListerner('click, populateInfoWindow')
+        marker.addListener('click', handleMarkerClick);
 
-        //add listener to make markers bounce when clicked
-        marker.addListener('click', function() {
-            mouseBounce(this);
-        });
-        //marker.addListerner('click, mouseBounce')
+        //addListener to make markers bounce when clicked.
+        //Passing the callback/handler outside of the loop so we don't have the
+        //anonymous function inside of the loop
+        marker.addListener('click', handleMarkerAnimation);
+
         locations[i].marker = marker;
     }
 }
