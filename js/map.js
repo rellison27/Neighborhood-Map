@@ -87,7 +87,7 @@ function populateInfoWindow(marker, infowindow) {
         // open and populate infowindow
         infowindow.setContent('<div>' + marker.title + '</div><p>' + result.response.venues[0].location.address + '</p><p>' + result.response.venues[0].location.postalCode + '</p>');
     }).fail(function(error) {
-        console.log(error);
+        alert("Error, failed to load data to application");
     });
 
 }
