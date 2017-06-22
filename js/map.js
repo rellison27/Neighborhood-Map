@@ -38,7 +38,7 @@ function initMap() {
         //marker.addListerner('click, mouseBounce')
         locations[i].marker = marker;
     }
-};
+}
 // populateInfoWindow
 function populateInfoWindow(marker, infowindow) {
     //check for already opened windows
