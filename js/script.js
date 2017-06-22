@@ -27,7 +27,7 @@ var ViewModel = function() {
                 var spot = locationItems.place.toLowerCase().indexOf(sifter) !== -1;
                 locationItems.marker.setVisible(spot);
                 return spot;
-            })
+            });
         }
     }, self);
     // Click function that allows me to click the list and get the bounce animation
